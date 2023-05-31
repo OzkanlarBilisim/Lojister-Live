@@ -1,0 +1,14 @@
+package com.lojister.business.abstracts;
+
+import com.lojister.controller.advertisement.SaveClientAdvertisementContainerRequest;
+import com.lojister.controller.advertisement.SaveClientAdvertisementFtlRequest;
+import com.lojister.model.dto.clientadvertisement.ClientAdvertisementContainerDto;
+import com.lojister.model.dto.clientadvertisement.ClientAdvertisementPartialDto;
+import com.lojister.model.entity.client.ClientAdvertisementContainer;
+
+public interface ClientAdvertisementContainerService {
+    ClientAdvertisementContainerDto save(SaveClientAdvertisementContainerRequest saveClientAdvertisementContainerRequest);
+    void checkedClientAdvertisementSaveDatesOperation(SaveClientAdvertisementContainerRequest saveClientAdvertisementContainerRequest);
+    void checkedClientAdvertisementSaveTimesOperation(SaveClientAdvertisementContainerRequest saveClientAdvertisementContainerRequest);
+    ClientAdvertisementContainer findById(Long id);
+}

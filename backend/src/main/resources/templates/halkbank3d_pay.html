@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>3D Hosting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            display: -moz-grid;
+            display: -ms-grid;
+            justify-content: center;
+            align-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            box-sizing: border-box;
+            padding: 2rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .status-image {
+            max-width: 200px;
+            width: 100%;
+        }
+
+        .text-container {
+            display: grid;
+            display: -moz-grid;
+            display: -ms-grid;
+            gap: .25rem;
+            text-align:center;
+        }
+
+        .text-container h4 {
+            margin: 0;
+            font-weight: 500;
+            font-size: 1.5rem;
+            color: #3B97D2;
+        }
+
+        .text-container p {
+            margin: 0;
+            color: #5c5c5c;
+        }
+    </style>
+</head>
+<body>
+
+
+<form action="https://sanalpos.halkbank.com.tr/fim/est3dgate" th:object="${halkbank3d}" method="post">
+
+    <input type="hidden" name="clientid" th:field="*{clientid}">
+    <input type="hidden" name="storetype" th:field="*{storetype}">
+    <input type="hidden" name="islemtipi" th:field="*{islemtipi}">
+    <input type="hidden" name="amount" th:field="*{amount}">
+    <input type="hidden" name="currency" th:field="*{currency}">
+    <input type="hidden" name="oid" th:field="*{oid}">
+    <input type="hidden" name="okUrl" th:field="*{okUrl}">
+    <input type="hidden" name="failUrl" th:field="*{failUrl}">
+    <input type="hidden" name="lang" th:field="*{lang}">
+    <input type="hidden" name="rnd" th:field="*{rnd}">
+    <input type="hidden" name="hash" th:field="*{hash}">
+    <input type="hidden" name="refreshtime" th:field="*{refreshtime}">
+    <input type="hidden" name="taksit" th:field="*{taksit}">
+    <input type="hidden" name="tel" th:field="*{tel}">
+    <input type="hidden" name="faturaFirma" th:field="*{faturaFirma}">
+    <input type="hidden" name="fulkekod" th:field="*{fulkekod}">
+    <input type="hidden" name="tulkekod" th:field="*{tulkekod}">
+
+    <div class="container">
+        <img src="https://www.lojister.com/assets/img/payment-waiting.svg" alt="" class="status-image">
+        <div class="text-container">
+            <h4 th:text="${title}">Bankaya yönlendiriliyorsunuz!</h4>
+            <p th:text="${message}">Ödeme işlemini tamamlamak için seçtiğiniz bankanın ödeme sayfasına yönlendiriliyorsunuz.</p>
+        </div>
+    </div>
+
+    <input type="submit" hidden="hidden" id="buttonSubmitHalkbank" value="Ödeme Sayfasına Git"/>
+</form>
+
+<script>
+
+
+    window.onload = function () {
+        setTimeout(() => {
+            var button = document.getElementById('buttonSubmitHalkbank');
+            button.form.submit();
+        }, 3000);
+    }
+</script>
+</body>
+</html>

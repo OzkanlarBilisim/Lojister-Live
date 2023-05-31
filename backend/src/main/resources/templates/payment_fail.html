@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            display: -moz-grid;
+            display: -ms-grid;
+            justify-content: center;
+            align-content: center;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            box-sizing: border-box;
+            padding: 2rem 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .status-image {
+            max-width: 200px;
+            width: 100%;
+        }
+
+        .text-container {
+            display: grid;
+            display: -moz-grid;
+            display: -ms-grid;
+            gap: .25rem;
+        }
+
+        .text-container h4 {
+            margin: 0;
+            font-weight: 500;
+            font-size: 1.5rem;
+            color: #3B97D2;
+        }
+
+        .text-container p {
+            margin: 0;
+            color: #5c5c5c;
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <img src="https://www.lojister.com/assets/img/payment-denied.svg" alt="" class="status-image">
+    <div class="text-container">
+        <h4 th:text="${title}"></h4>
+        <h6 th:text="${failMessage}"></h6>
+        <p th:text="${message}"></p>
+        <input th:value="${url}" type="hidden" id="url">
+    </div>
+</div>
+<script>
+    window.onload = function () {
+        var url = document.getElementById("url");
+        setTimeout(() => {
+            window.location = url.value;
+        }, 5000);
+    }
+</script>
+</body>
+
+</html>

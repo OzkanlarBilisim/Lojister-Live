@@ -1,0 +1,12 @@
+package com.lojister.model.enums;
+
+public enum Role {
+    ROLE_ADMIN,
+    ROLE_DRIVERMANAGER,
+    ROLE_CLIENTMANAGER,
+    ROLE_DRIVER,
+    ROLE_DRIVER_EMPLOYEE,
+    ROLE_CLIENT_EMPLOYEE,
+    ROLE_CLIENT,
+    ROLE_INSURANCE_COMPANY
+}
