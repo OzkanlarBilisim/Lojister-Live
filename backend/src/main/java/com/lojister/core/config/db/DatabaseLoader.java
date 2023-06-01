@@ -728,6 +728,30 @@ public class DatabaseLoader implements CommandLineRunner {
             client.setEuro(0.0);
 
 
+            Company companyClient = new Company();
+            Address addressClient = new Address();
+
+            addressClient.setCountry("Country1");
+            addressClient.setDistrict("District1");
+            addressClient.setProvince("Province1");
+            addressClient.setNeighborhood("Neighborhood1");
+            addressClient.setFullAddress("Full Address1");
+
+            companyClient.setCommercialTitle("commercial Title1");
+            companyClient.setTaxNumber("tax number1");
+            addressClient.setFullAddress("Denizli Aselsis Driver Full Adres1");
+            companyClient.setAddress(addressClient);
+            companyClient.setTaxAdministration("Tax Administration1");
+            companyClient.setFinancialStaffFirstname("FinancialStaffFirstname1");
+            companyClient.setFinancialStaffLastname("FinancialStaffLastname");
+            companyClient.setFinancialStaffPhone("FinancialStaffPhone");
+            companyClient.setMail("company@mail");
+            companyClient.setPhone("CompanyPhone");
+            companyClient.setRating(10.0);
+
+            companyClient = companyRepository.saveAndFlush(companyClient);
+
+            client.setCompany(companyClient);
             client.setFirstName("Client Firstname");
             client.setLastName("Client Lastname");
             client.setPhone("+90~2001231212");
@@ -738,6 +762,7 @@ public class DatabaseLoader implements CommandLineRunner {
             client.setMailConfirmed(Boolean.TRUE);
             client.setPhoneConfirmed(Boolean.TRUE);
             client.setNotificationSetting(clientNotificationSetting);
+            client.setLanguage(Language.TURKISH);
             clientRepository.save(client);
 
             //-------------------------------------------------------------
