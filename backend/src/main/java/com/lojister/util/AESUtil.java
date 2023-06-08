@@ -17,7 +17,7 @@ public class AESUtil {
     private static final String AES_ALGORITHM = "AES";
 
     public static String encrypt(String plainText) throws Exception {
-        String key = "SemSiye12345678x";
+        String key = "bFLUzvqstSEr4MeF";
         SecretKey secretKey = generateSecretKey(key);
         Cipher cipher = Cipher.getInstance(AES_ALGORITHM);
         cipher.init(Cipher.ENCRYPT_MODE, secretKey);
@@ -26,7 +26,7 @@ public class AESUtil {
     }
 
     public static String decrypt(String encryptedText) throws Exception {
-        String key = "SemSiye12345678x";
+        String key = "bFLUzvqstSEr4MeF";
         SecretKey secretKey = generateSecretKey(key);
         Cipher cipher = Cipher.getInstance(AES_ALGORITHM);
         cipher.init(Cipher.DECRYPT_MODE, secretKey);
